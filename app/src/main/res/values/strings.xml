@@ -4,7 +4,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="Emailed_tab">Emailed</string>
-    <string name="Shared_tab">Shared</string>
-    <string name="Viewed_tab">Viewed</string>
+    <string name="emailed_tab">Emailed</string>
+    <string name="shared_tab">Shared</string>
+    <string name="viewed_tab">Viewed</string>
+    
+    <string name="api_key">9945dcb7273a42e694c97bbaf9b50750</string>
 </resources>
