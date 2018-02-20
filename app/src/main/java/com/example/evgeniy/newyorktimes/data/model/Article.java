@@ -34,20 +34,20 @@ public class Article {
     @SerializedName("source")
     private String source;
 
-    @SerializedName("des_facet")
-    private List<String> desFacet = null;
+   // @SerializedName("des_facet")
+  //  private List<String> desFacet = null;
 
-    @SerializedName("org_facet")
-    private List<String> orgFacet = null;
+ //   @SerializedName("org_facet")
+ //   private List<String> orgFacet = null;
 
-    @SerializedName("per_facet")
-    private List<String> perFacet = null;
+ //   @SerializedName("per_facet")
+ //   private List<String> perFacet = null;
 
-    @SerializedName("geo_facet")
-    private String geoFacet;
+  //  @SerializedName("geo_facet")
+  //  private String geoFacet;
 
-    @SerializedName("media")
-    private List<Media> media = null;
+ //   @SerializedName("media")
+ //   private List<Media> media = null;
 
     public String getUrl() {
         return url;
@@ -97,11 +97,11 @@ public class Article {
         this.title = title;
     }
 
-    public String get_abstract() {
+    public String getAbstract() {
         return abstractText;
     }
 
-    public void set_abstract(String _abstract) {
+    public void setAbstract(String _abstract) {
         this.abstractText = _abstract;
     }
 
@@ -121,43 +121,42 @@ public class Article {
         this.source = source;
     }
 
-    public List<String> getDesFacet() {
-        return desFacet;
-    }
+ //   public List<String> getDesFacet() {
+  //      return desFacet;
+  //  }
 
-    public void setDesFacet(List<String> desFacet) {
-        this.desFacet = desFacet;
-    }
+  //  public void setDesFacet(List<String> desFacet) {
+   //     this.desFacet = desFacet;
+   // }
+//
+ //   public List<String> getOrgFacet() {
+   //     return orgFacet;
+   // }
 
-    public List<String> getOrgFacet() {
-        return orgFacet;
-    }
+  //  public void setOrgFacet(List<String> orgFacet) {
+  //      this.orgFacet = orgFacet;
+  //  }
 
-    public void setOrgFacet(List<String> orgFacet) {
-        this.orgFacet = orgFacet;
-    }
+ //   public List<String> getPerFacet() {
+  //      return perFacet;
+ //   }
 
-    public List<String> getPerFacet() {
-        return perFacet;
-    }
+ //   public void setPerFacet(List<String> perFacet) {
+  //      this.perFacet = perFacet;
+  //  }
+//
+  //  public String getGeoFacet() {
+  //      return geoFacet;
+  //  }
 
-    public void setPerFacet(List<String> perFacet) {
-        this.perFacet = perFacet;
-    }
+  //  public void setGeoFacet(String geoFacet) {
+ //       this.geoFacet = geoFacet;
+ //   }
 
-    public String getGeoFacet() {
-        return geoFacet;
-    }
-
-    public void setGeoFacet(String geoFacet) {
-        this.geoFacet = geoFacet;
-    }
-
-    public List<Media> getMedia() {
-        return media;
-    }
-
-    public void setMedia(List<Media> media) {
-        this.media = media;
-    }
+  //  public List<Media> getMedia() {
+  //      return media;
+  //
+  //  public void setMedia(List<Media> media) {
+    //    this.media = media;
+  //  }
 }

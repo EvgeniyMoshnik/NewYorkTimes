@@ -13,6 +13,6 @@ import retrofit2.http.Query;
 public interface NYTimesService {
 
    @GET("{type}/{section}/{time-period}.json")
-   Call<List<ArticleList>> getArticles(@Path("type") String type, @Path("section") String section,
+   Call<ArticleList> getArticles(@Path("type") String type, @Path("section") String section,
                                        @Path("time-period") int timePeriod, @Query("api-key") String apiKey);
 }

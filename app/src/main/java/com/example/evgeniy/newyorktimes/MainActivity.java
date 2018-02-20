@@ -35,9 +35,6 @@ public class MainActivity extends AppCompatActivity {
         mFragmentManager = getSupportFragmentManager();
 
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        mTabLayout.addTab(mTabLayout.newTab().setText(R.string.Emailed_tab));
-        mTabLayout.addTab(mTabLayout.newTab().setText(R.string.Shared_tab));
-        mTabLayout.addTab(mTabLayout.newTab().setText(R.string.Viewed_tab));
 
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
         mTabAdapter = new TabAdapter(mFragmentManager, 3);
@@ -61,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        mTabLayout.addTab(mTabLayout.newTab().setText(R.string.emailed_tab));
+        mTabLayout.addTab(mTabLayout.newTab().setText(R.string.shared_tab));
+        mTabLayout.addTab(mTabLayout.newTab().setText(R.string.viewed_tab));
 
     }
 }
