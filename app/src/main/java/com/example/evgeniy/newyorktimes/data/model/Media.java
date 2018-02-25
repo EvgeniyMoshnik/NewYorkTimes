@@ -20,7 +20,7 @@ public class Media {
     private String copyright;
 
     @SerializedName("media-metadata")
-    List<MediaMetaData> mediaMetadata = null;
+    private List<MediaMetaData> mediaMetadata;
 
     public String getType() {
         return type;

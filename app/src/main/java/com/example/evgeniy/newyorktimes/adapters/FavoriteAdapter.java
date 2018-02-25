@@ -7,17 +7,14 @@ import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
-import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.evgeniy.newyorktimes.ArticleDetailActivity;
-import com.example.evgeniy.newyorktimes.Database.DBHelper;
 import com.example.evgeniy.newyorktimes.R;
 import com.example.evgeniy.newyorktimes.data.model.Article;
-import com.example.evgeniy.newyorktimes.data.model.ArticleList;
 import com.example.evgeniy.newyorktimes.utils.Constants;
 import com.squareup.picasso.Picasso;
 
@@ -26,42 +23,42 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
-public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ArticleViewHolder> {
+
+public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ArticleViewHolder>  {
 
     private List<Article> mArticles;
     private Context mContext;
-    private  Article mArticle;
 
-    public ArticlesAdapter(List<Article> mArticles, Context mContext) {
+    public FavoriteAdapter(List<Article> mArticles, Context mContext) {
         this.mArticles = mArticles;
         this.mContext = mContext;
     }
 
     @Override
-    public ArticleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public FavoriteAdapter.ArticleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.article_item, parent, false);
-        return new ArticleViewHolder(itemView);
+                .inflate(R.layout.article_item_favorite, parent, false);
+        return new FavoriteAdapter.ArticleViewHolder(itemView);
     }
 
 
     @Override
-    public void onBindViewHolder(final ArticleViewHolder holder, final int position) {
-        mArticle = mArticles.get(position);
+    public void onBindViewHolder(final FavoriteAdapter.ArticleViewHolder holder, final int position) {
+        // Article article = mArticles.get(position);
         holder.mTvTitle.setText(mArticles.get(position).getTitle());
         holder.mTvAbstract.setText(mArticles.get(position).getAbstract());
         holder.mTvByline.setText(mArticles.get(position).getByline());
 
-      //  String formateDate = DateFormat.format("yyyy-MM-dd", mArticles.get(position).getPublishedDate());
+        //  String formateDate = DateFormat.format("yyyy-MM-dd", mArticles.get(position).getPublishedDate());
 
         holder.mTvPublishedDate.setText(mArticles.get(position).getPublishedDate());
 
-     //Error catch me
-        if (mArticles.get(position).getMedia() != null &&
-                mArticles.get(position).getMedia().get(0).getMediaMetadatas() != null) {
+        //Error catch me
+      //  if (mArticles.get(position).getMedia() != null &&
+      //          mArticles.get(position).getMedia().get(0).getMediaMetadatas() != null) {
 
-            Picasso.with(mContext).load(mArticles.get(position).getMedia().get(0).getMediaMetadatas().get(0).getUrl()).into(holder.mCircleIVArticle);
-        }
+         //   Picasso.with(mContext).load(mArticles.get(position).getMedia().get(0).getMediaMetadatas().get(0).getUrl()).into(holder.mCircleIVArticle);
+       // }
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,12 +77,12 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.Articl
 
         holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public boolean onLongClick(final View v) {
+            public boolean onLongClick(View v) {
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        addFavoriteArticle(v);
+
                     }
                 }, 1000);
 
@@ -109,8 +106,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.Articl
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                DBHelper dbHelper = new DBHelper(mContext);
-                dbHelper.saveArticles(mArticle);
+
                 Snackbar.make(view,"Added", Snackbar.LENGTH_LONG).show();
                 dialog.dismiss();
             }
@@ -132,21 +128,21 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.Articl
         public TextView mTvAbstract;
         public TextView mTvByline;
         public TextView mTvPublishedDate;
-        public CircleImageView mCircleIVArticle;
+    //    public CircleImageView mCircleIVArticle;
         public View mView;
 
-        private Article mArticle;
+        //  private Article mArticle;
 
 
         public ArticleViewHolder(View view) {
             super(view);
             mView = view;
 
-            mTvTitle = (TextView) view.findViewById(R.id.item_title);
-            mTvAbstract = (TextView) view.findViewById(R.id.item_abstract);
-            mTvByline = (TextView) view.findViewById(R.id.item_byline);
-            mTvPublishedDate = (TextView) view.findViewById(R.id.item_published_date);
-            mCircleIVArticle = (CircleImageView) view.findViewById(R.id.circle_image_article);
+            mTvTitle = (TextView) view.findViewById(R.id.item_title_favorite);
+            mTvAbstract = (TextView) view.findViewById(R.id.item_abstract_favorite);
+            mTvByline = (TextView) view.findViewById(R.id.item_byline_favorite);
+            mTvPublishedDate = (TextView) view.findViewById(R.id.item_published_date_favorite);
+          //  mCircleIVArticle = (CircleImageView) view.findViewById(R.id.circle_image_article);
         }
     }
 

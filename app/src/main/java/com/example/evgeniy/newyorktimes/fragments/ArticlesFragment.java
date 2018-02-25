@@ -18,6 +18,7 @@ import com.example.evgeniy.newyorktimes.R;
 import com.example.evgeniy.newyorktimes.adapters.ArticlesAdapter;
 import com.example.evgeniy.newyorktimes.data.model.Article;
 import com.example.evgeniy.newyorktimes.data.model.ArticleList;
+import com.example.evgeniy.newyorktimes.utils.Constants;
 
 import java.util.List;
 
@@ -31,7 +32,7 @@ import retrofit2.Retrofit;
  */
 public class ArticlesFragment extends Fragment {
 
-    private static  String API_KEY = "";
+   // private static  String API_KEY = "";
     private static final String BUNDLE_TYPE_ARTICLES = "type_articles";
 
     private RecyclerView mRecyclerView;
@@ -40,11 +41,6 @@ public class ArticlesFragment extends Fragment {
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
     private String mTypeArticles;
-
-
-    public ArticlesFragment() {
-        // Required empty public constructor
-    }
 
     public static ArticlesFragment newInstance(String typeArticles) {
         ArticlesFragment fragment = new ArticlesFragment();
@@ -93,16 +89,18 @@ public class ArticlesFragment extends Fragment {
 
 
     public void refreshArticles() {
-        API_KEY = getResources().getString(R.string.api_key);
+      //  API_KEY = getResources().getString(R.string.api_key);
 
-        Call<ArticleList> call = NYTimesClient.getClient().getArticles(mTypeArticles, "all-sections", 30, API_KEY );
+        Call<ArticleList> call = NYTimesClient.getClient().getArticles(mTypeArticles, "all-sections", 30, Constants.API_KEY);
 
         call.enqueue(new Callback<ArticleList>() {
             @Override
             public void onResponse(Call<ArticleList> call, Response<ArticleList> response) {
 
-                List<Article> articles = response.body().getResults();
-                mRecyclerView.setAdapter(new ArticlesAdapter(articles, getActivity()));
+                if (response.body() != null) {
+                    List<Article> articles = response.body().getResults();
+                    mRecyclerView.setAdapter(new ArticlesAdapter(articles, getActivity()));
+                }
             }
 
             @Override

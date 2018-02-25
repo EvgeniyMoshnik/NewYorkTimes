@@ -7,19 +7,19 @@ import java.util.List;
 
 public class ArticleList {
 
-    @SerializedName("status")
-    private String status;
+  //  @SerializedName("status")
+  //  private String status;
 
-    @SerializedName("copyright")
-    private String copyright;
+  //  @SerializedName("copyright")
+  //  private String copyright;
 
-    @SerializedName("num_results")
-    private int numResults;
+  //  @SerializedName("num_results")
+  //  private int numResults;
 
     @SerializedName("results")
-    private List<Article> results = null;
+    private List<Article> results;
 
-    public String getStatus() {
+ /*   public String getStatus() {
         return status;
     }
 
@@ -41,7 +41,7 @@ public class ArticleList {
 
     public void setNumResults(int numResults) {
         this.numResults = numResults;
-    }
+    } */
 
     public List<Article> getResults() {
         return results;

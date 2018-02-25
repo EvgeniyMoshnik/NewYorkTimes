@@ -46,8 +46,19 @@ public class Article {
   //  @SerializedName("geo_facet")
   //  private String geoFacet;
 
- //   @SerializedName("media")
- //   private List<Media> media = null;
+    @SerializedName("media")
+    private MediaList media;
+
+  //  private long timeStamp;
+
+    public Article(String title, String abstractText, String byline, String publishedDate, String url) {
+        this.url = url;
+        this.byline = byline;
+        this.title = title;
+        this.abstractText = abstractText;
+        this.publishedDate = publishedDate;
+       // this.timeStamp = timeStamp;
+    }
 
     public String getUrl() {
         return url;
@@ -153,10 +164,18 @@ public class Article {
  //       this.geoFacet = geoFacet;
  //   }
 
-  //  public List<Media> getMedia() {
-  //      return media;
-  //
-  //  public void setMedia(List<Media> media) {
-    //    this.media = media;
+    public MediaList getMedia() {
+        return media;
+    }
+    public void setMedia(MediaList media) {
+        this.media = media;
+    }
+
+ //   public long getTimeStamp() {
+ //       return timeStamp;
   //  }
+
+  //  public void setTimeStamp(long timeStamp) {
+    //    this.timeStamp = timeStamp;
+   // }
 }

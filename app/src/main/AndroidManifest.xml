@@ -18,6 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ArticleDetailActivity"
+            android:label="@string/title_activity_article_detail"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ArticlesFavoriteActivity"
+            android:label="@string/title_activity_articles_favorite"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.evgeniy.newyorktimes.fragments.ArticlesFragment;
+import com.example.evgeniy.newyorktimes.utils.Constants;
 
 public class TabAdapter extends FragmentStatePagerAdapter {
 
@@ -21,11 +22,11 @@ public class TabAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                return new ArticlesFragment();
+                return ArticlesFragment.newInstance(Constants.ARTICLES_TYPE_MOSTEMAILED);
             case 1:
-                return new ArticlesFragment();
+                return ArticlesFragment.newInstance(Constants.ARTICLES_TYPE_MOSTSHARED);
             case 2:
-                return new ArticlesFragment();
+                return ArticlesFragment.newInstance(Constants.ARTICLES_TYPE_MOSTVIEWED);
             default:
                 return null;
         }

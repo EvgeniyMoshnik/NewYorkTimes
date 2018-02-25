@@ -7,6 +7,12 @@
     <string name="emailed_tab">Emailed</string>
     <string name="shared_tab">Shared</string>
     <string name="viewed_tab">Viewed</string>
-    
+
     <string name="api_key">9945dcb7273a42e694c97bbaf9b50750</string>
+    <string name="title_activity_article_detail">ArticleDetailActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_articles_favorite">FAVORITE</string>
+    <string name="add_favorite_message">Are you sure want to add this article in favorite?</string>
+    <string name="positive_button">OK</string>
+    <string name="negative_button">Cancel</string>
 </resources>
