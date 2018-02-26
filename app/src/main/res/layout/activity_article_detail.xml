@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_behavior="com.example.evgeniy.newyorktimes.utils.FAB_Hide_on_Scroll"
+    android:theme="@style/AppTheme"
     tools:context="com.example.evgeniy.newyorktimes.ArticleDetailActivity">
 
     <android.support.design.widget.AppBarLayout

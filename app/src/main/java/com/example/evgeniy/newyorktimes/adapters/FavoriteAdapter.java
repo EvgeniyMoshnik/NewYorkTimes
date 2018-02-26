@@ -94,7 +94,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Articl
     }
 
     private void deleteFavoriteArticle(final View view) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
 
         builder.setMessage(R.string.delete_favorite_message);
 

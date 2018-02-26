@@ -30,6 +30,7 @@ card_view:cardCornerRadius="20dp">
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:id="@+id/circle_image_article"
+            android:src="@drawable/not_image"
             android:layout_marginBottom="@dimen/card_article_margin"
             android:layout_marginLeft="@dimen/card_article_margin"
             android:layout_marginRight="@dimen/card_article_margin"
