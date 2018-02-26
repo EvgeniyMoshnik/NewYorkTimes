@@ -1,66 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tool="http://schemas.android.com/tools"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tool="http://schemas.android.com/tools"
+xmlns:card_view="http://schemas.android.com/apk/res-auto"
 
-    android:id="@+id/card_view_article"
-    android:layout_width="match_parent"
+android:id="@+id/card_view_article"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginBottom="@dimen/card_article_margin"
+android:layout_marginLeft="@dimen/card_article_margin"
+android:layout_marginRight="@dimen/card_article_margin"
+android:layout_marginTop="@dimen/card_article_margin"
+card_view:cardCornerRadius="20dp">
+
+
+
+<LinearLayout
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/card_article_margin"
-    android:layout_marginLeft="@dimen/card_article_margin"
-    android:layout_marginRight="@dimen/card_article_margin"
-    android:layout_marginTop="@dimen/card_article_margin"
-    card_view:cardCornerRadius="20dp">
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/circle_image_article"
-        />
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        >
 
-        <TextView
-            android:id="@+id/item_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
-            tool:text="Finding a Lost Strain of Rice, and Clues to Slave Cooking" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/circle_image_article"
+            android:layout_marginBottom="@dimen/card_article_margin"
+            android:layout_marginLeft="@dimen/card_article_margin"
+            android:layout_marginRight="@dimen/card_article_margin"
+            android:layout_marginTop="@dimen/card_article_margin"
+            />
 
-        <TextView
-            android:id="@+id/item_abstract"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            tool:text="The search for the missing grain led to Trinidad and Thomas Jefferson, and now excitement among African-American chefs." />
+    <TextView
+        android:id="@+id/item_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:layout_marginBottom="@dimen/card_article_margin"
+        android:layout_marginLeft="@dimen/card_article_margin"
+        android:layout_marginRight="@dimen/card_article_margin"
+        android:layout_marginTop="@dimen/card_article_margin"
+        tool:text="Finding a Lost Strain of Rice, and Clues to Slave Cooking" />
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/item_byline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                tool:text="By KIM SEVERSON" />
-
-            <TextView
-                android:id="@+id/item_published_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                tool:text="2018-02-13" />
-        </LinearLayout>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/item_byline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tool:text="By KIM SEVERSON"
+            android:layout_marginBottom="@dimen/card_article_margin"
+            android:layout_marginLeft="@dimen/card_article_margin"
+            android:layout_marginRight="@dimen/card_article_margin"
+            android:layout_marginTop="@dimen/card_article_margin"/>
+
+        <TextView
+            android:id="@+id/item_published_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tool:text="2018-02-13"
+            android:layout_marginBottom="@dimen/card_article_margin"
+            android:layout_marginLeft="@dimen/card_article_margin"
+            android:layout_marginRight="@dimen/card_article_margin"
+            android:layout_marginTop="@dimen/card_article_margin"/>
+    </LinearLayout>
+</LinearLayout>
 </android.support.v7.widget.CardView>

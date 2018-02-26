@@ -1,6 +1,7 @@
 package com.example.evgeniy.newyorktimes;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +11,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.evgeniy.newyorktimes.utils.Constants;
+
+
 
 public class ArticleDetailActivity extends AppCompatActivity {
 
@@ -26,7 +29,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
 
         //if Error
 
@@ -45,8 +48,10 @@ public class ArticleDetailActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Uri uri = Uri.parse(intent.getStringExtra(Constants.BUNDLE_ARTICLE_URL));
+                Intent intentUrl = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intentUrl);
+
             }
         });
     }

@@ -27,7 +27,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + COLUMN_ABSTRACT + " TEXT, " + COLUMN_BYLINE + " TEXT, "
             + COLUMN_PUBLISHED_DATA + " TEXT, " + COLUMN_URL + " TEXT);";
 
-    public static final String SELECTION_TiTLE = COLUMN_TITLE + " = ?";
+    public static final String SELECTION_TITLE = COLUMN_TITLE + " = ?";
 
     private QueryManager queryManager;
 
@@ -79,9 +79,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public void removeTask(Article article) {
+    public void deleteArticle(Article article) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(ARTICLES_TABLE, SELECTION_TiTLE, new String[]{String.valueOf(article.getTitle())});
+        db.delete(ARTICLES_TABLE, SELECTION_TITLE, new String[]{String.valueOf(article.getTitle())});
         db.close();
     }
 }

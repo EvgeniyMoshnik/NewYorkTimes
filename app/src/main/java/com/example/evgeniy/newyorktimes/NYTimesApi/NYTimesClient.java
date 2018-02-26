@@ -25,7 +25,7 @@ public class NYTimesClient {
         if (sRetrofit == null) {
             sRetrofit = new Retrofit.Builder()
                     .baseUrl(API_BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create(getGson("yyyy-MM-dd")))
+                    .addConverterFactory(GsonConverterFactory.create(getGson()))
                     .build();
 
             sNYTimesService = sRetrofit.create(NYTimesService.class);
@@ -34,8 +34,8 @@ public class NYTimesClient {
         return sNYTimesService;
     }
 
-    static Gson getGson(String dateFormatString) {
-        return new GsonBuilder().setDateFormat(dateFormatString).registerTypeAdapter(MediaList.class, new JsonDeserializer<MediaList>() {
+    static Gson getGson() {
+        return new GsonBuilder().registerTypeAdapter(MediaList.class, new JsonDeserializer<MediaList>() {
             @Override
             public MediaList deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
                 if (json.isJsonArray()) {

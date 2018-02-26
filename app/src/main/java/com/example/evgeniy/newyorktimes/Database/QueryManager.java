@@ -53,7 +53,7 @@ public class QueryManager {
 
                 Article article = new Article(title, abstractText, byline, publishedDate, url);
                 articles.add(article);
-                Log.e("myLog", title);
+            //    Log.e("myLog", title);
 
             } while (cursor.moveToNext());
         }

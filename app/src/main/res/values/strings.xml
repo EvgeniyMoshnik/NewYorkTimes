@@ -13,6 +13,7 @@
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_articles_favorite">FAVORITE</string>
     <string name="add_favorite_message">Are you sure want to add this article in favorite?</string>
+    <string name="delete_favorite_message">Are you sure want to delete this article?</string>
     <string name="positive_button">OK</string>
     <string name="negative_button">Cancel</string>
 </resources>

@@ -49,10 +49,9 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.Articl
     public void onBindViewHolder(final ArticleViewHolder holder, final int position) {
         mArticle = mArticles.get(position);
         holder.mTvTitle.setText(mArticles.get(position).getTitle());
-        holder.mTvAbstract.setText(mArticles.get(position).getAbstract());
+       // holder.mTvAbstract.setText(mArticles.get(position).getAbstract());
         holder.mTvByline.setText(mArticles.get(position).getByline());
 
-      //  String formateDate = DateFormat.format("yyyy-MM-dd", mArticles.get(position).getPublishedDate());
 
         holder.mTvPublishedDate.setText(mArticles.get(position).getPublishedDate());
 
@@ -129,7 +128,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.Articl
     public static class ArticleViewHolder extends RecyclerView.ViewHolder {
 
         public TextView mTvTitle;
-        public TextView mTvAbstract;
+    //    public TextView mTvAbstract;
         public TextView mTvByline;
         public TextView mTvPublishedDate;
         public CircleImageView mCircleIVArticle;
@@ -143,7 +142,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.Articl
             mView = view;
 
             mTvTitle = (TextView) view.findViewById(R.id.item_title);
-            mTvAbstract = (TextView) view.findViewById(R.id.item_abstract);
+           // mTvAbstract = (TextView) view.findViewById(R.id.item_abstract);
             mTvByline = (TextView) view.findViewById(R.id.item_byline);
             mTvPublishedDate = (TextView) view.findViewById(R.id.item_published_date);
             mCircleIVArticle = (CircleImageView) view.findViewById(R.id.circle_image_article);
