@@ -20,7 +20,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_BYLINE = "byline";
     public static final String COLUMN_PUBLISHED_DATA = "published_data";
     public static final String COLUMN_URL = "url";
- //   public static final String COLUMN_TIME_STAMP = "task_time_stamp";
 
     private static final String ARTICLES_TABLE_CREATE_SCRIPT = "CREATE TABLE " + ARTICLES_TABLE
             + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_TITLE + " TEXT NOT NULL, "
@@ -69,14 +68,10 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_BYLINE, article.getByline());
         cv.put(COLUMN_PUBLISHED_DATA, article.getPublishedDate());
         cv.put(COLUMN_URL, article.getUrl());
-       // cv.put(COLUMN_TIME_STAMP, article.getTimeStamp());
-
 
         db.insert(ARTICLES_TABLE, null, cv);
 
         db.close();
-
-
     }
 
     public void deleteArticle(Article article) {

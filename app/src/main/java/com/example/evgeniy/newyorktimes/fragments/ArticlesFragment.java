@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.evgeniy.newyorktimes.NYTimesApi.NYTimesClient;
-import com.example.evgeniy.newyorktimes.NYTimesApi.NYTimesService;
 import com.example.evgeniy.newyorktimes.R;
 import com.example.evgeniy.newyorktimes.adapters.ArticlesAdapter;
 import com.example.evgeniy.newyorktimes.data.model.Article;
@@ -25,19 +24,16 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
+
 public class ArticlesFragment extends Fragment {
 
-   // private static  String API_KEY = "";
     private static final String BUNDLE_TYPE_ARTICLES = "type_articles";
 
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
- //   private RecyclerView.Adapter mRVAdapter;
+
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
     private String mTypeArticles;
@@ -71,9 +67,6 @@ public class ArticlesFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-     //   mRVAdapter = new ArticlesAdapter();
-       // mRecyclerView.setAdapter(mRVAdapter);
-
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -89,7 +82,6 @@ public class ArticlesFragment extends Fragment {
 
 
     public void refreshArticles() {
-      //  API_KEY = getResources().getString(R.string.api_key);
 
         Call<ArticleList> call = NYTimesClient.getClient().getArticles(mTypeArticles, "all-sections", 30, Constants.API_KEY);
 

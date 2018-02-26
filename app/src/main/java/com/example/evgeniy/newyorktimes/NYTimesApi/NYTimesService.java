@@ -3,7 +3,6 @@ package com.example.evgeniy.newyorktimes.NYTimesApi;
 
 import com.example.evgeniy.newyorktimes.data.model.ArticleList;
 
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

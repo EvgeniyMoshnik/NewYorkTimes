@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +17,9 @@ import com.example.evgeniy.newyorktimes.Database.DBHelper;
 import com.example.evgeniy.newyorktimes.R;
 import com.example.evgeniy.newyorktimes.data.model.Article;
 import com.example.evgeniy.newyorktimes.utils.Constants;
-import com.squareup.picasso.Picasso;
+
 
 import java.util.List;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 
 
@@ -51,20 +48,12 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Articl
         mArticle = mArticles.get(position);
         holder.mTvTitle.setText(mArticles.get(position).getTitle());
         holder.mTvAbstract.setText(mArticles.get(position).getAbstract());
+        holder.mTvByline.setText(mArticles.get(position).getByline());
 
-        Log.e("myLog", mArticles.get(position).getTitle());
+      //  Log.e("myLog", mArticles.get(position).getTitle());
 
-
-        //  String formateDate = DateFormat.format("yyyy-MM-dd", mArticles.get(position).getPublishedDate());
 
         holder.mTvPublishedDate.setText(mArticles.get(position).getPublishedDate());
-
-        //Error catch me
-      //  if (mArticles.get(position).getMedia() != null &&
-      //          mArticles.get(position).getMedia().get(0).getMediaMetadatas() != null) {
-
-         //   Picasso.with(mContext).load(mArticles.get(position).getMedia().get(0).getMediaMetadatas().get(0).getUrl()).into(holder.mCircleIVArticle);
-       // }
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +81,6 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Articl
                     }
                 }, 1000);
 
-
                 return false;
             }
         });
@@ -103,7 +91,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Articl
         return mArticles.size();
     }
 
-    public void deleteFavoriteArticle(final View view) {
+    private void deleteFavoriteArticle(final View view) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
 
         builder.setMessage(R.string.delete_favorite_message);
@@ -113,8 +101,8 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Articl
             public void onClick(DialogInterface dialog, int which) {
 
                 DBHelper dbHelper = new DBHelper(mContext);
-        //        dbHelper.deleteArticle(mArticle);
-             //   Snackbar.make(view,"Deleted", Snackbar.LENGTH_LONG).show();
+                dbHelper.deleteArticle(mArticle);
+                Snackbar.make(view,"Deleted", Snackbar.LENGTH_LONG).show();
                 dialog.dismiss();
             }
         });
@@ -129,19 +117,18 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Articl
         builder.show();
     }
 
-    public static class ArticleViewHolder extends RecyclerView.ViewHolder {
+     static class ArticleViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView mTvTitle;
-        public TextView mTvAbstract;
-        public TextView mTvByline;
-        public TextView mTvPublishedDate;
-    //    public CircleImageView mCircleIVArticle;
-        public View mView;
+        private TextView mTvTitle;
+        private TextView mTvAbstract;
+        private TextView mTvByline;
+        private TextView mTvPublishedDate;
+        private View mView;
 
         //  private Article mArticle;
 
 
-        public ArticleViewHolder(View view) {
+         ArticleViewHolder(View view) {
             super(view);
             mView = view;
 

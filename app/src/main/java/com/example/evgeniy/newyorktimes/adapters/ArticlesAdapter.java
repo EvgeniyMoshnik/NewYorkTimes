@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
-import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,6 @@ import com.example.evgeniy.newyorktimes.ArticleDetailActivity;
 import com.example.evgeniy.newyorktimes.Database.DBHelper;
 import com.example.evgeniy.newyorktimes.R;
 import com.example.evgeniy.newyorktimes.data.model.Article;
-import com.example.evgeniy.newyorktimes.data.model.ArticleList;
 import com.example.evgeniy.newyorktimes.utils.Constants;
 import com.squareup.picasso.Picasso;
 
@@ -49,13 +47,11 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.Articl
     public void onBindViewHolder(final ArticleViewHolder holder, final int position) {
         mArticle = mArticles.get(position);
         holder.mTvTitle.setText(mArticles.get(position).getTitle());
-       // holder.mTvAbstract.setText(mArticles.get(position).getAbstract());
         holder.mTvByline.setText(mArticles.get(position).getByline());
 
 
         holder.mTvPublishedDate.setText(mArticles.get(position).getPublishedDate());
 
-     //Error catch me
         if (mArticles.get(position).getMedia() != null &&
                 mArticles.get(position).getMedia().get(0).getMediaMetadatas() != null) {
 
@@ -87,8 +83,6 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.Articl
                         addFavoriteArticle(v);
                     }
                 }, 1000);
-
-
                 return false;
             }
         });
@@ -99,7 +93,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.Articl
         return mArticles.size();
     }
 
-    public void addFavoriteArticle(final View view) {
+    private void addFavoriteArticle(final View view) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
 
         builder.setMessage(R.string.add_favorite_message);
@@ -125,24 +119,20 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.Articl
         builder.show();
     }
 
-    public static class ArticleViewHolder extends RecyclerView.ViewHolder {
+     static class ArticleViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView mTvTitle;
-    //    public TextView mTvAbstract;
-        public TextView mTvByline;
-        public TextView mTvPublishedDate;
-        public CircleImageView mCircleIVArticle;
-        public View mView;
-
-        private Article mArticle;
+        private TextView mTvTitle;
+        private TextView mTvByline;
+        private TextView mTvPublishedDate;
+        private CircleImageView mCircleIVArticle;
+        private View mView;
 
 
-        public ArticleViewHolder(View view) {
+         ArticleViewHolder(View view) {
             super(view);
             mView = view;
 
             mTvTitle = (TextView) view.findViewById(R.id.item_title);
-           // mTvAbstract = (TextView) view.findViewById(R.id.item_abstract);
             mTvByline = (TextView) view.findViewById(R.id.item_byline);
             mTvPublishedDate = (TextView) view.findViewById(R.id.item_published_date);
             mCircleIVArticle = (CircleImageView) view.findViewById(R.id.circle_image_article);

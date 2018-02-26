@@ -3,9 +3,6 @@ package com.example.evgeniy.newyorktimes.Database;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-
-import com.example.evgeniy.newyorktimes.adapters.ArticlesAdapter;
 import com.example.evgeniy.newyorktimes.data.model.Article;
 
 import java.util.ArrayList;
@@ -53,7 +50,6 @@ public class QueryManager {
 
                 Article article = new Article(title, abstractText, byline, publishedDate, url);
                 articles.add(article);
-            //    Log.e("myLog", title);
 
             } while (cursor.moveToNext());
         }

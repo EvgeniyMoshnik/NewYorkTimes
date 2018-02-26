@@ -23,16 +23,22 @@
             android:id="@+id/item_title_favorite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
+            android:layout_marginBottom="@dimen/card_article_margin"
+            android:layout_marginLeft="@dimen/card_article_margin"
+            android:layout_marginRight="@dimen/card_article_margin"
+            android:layout_marginTop="@dimen/card_article_margin"
             tool:text="Finding a Lost Strain of Rice, and Clues to Slave Cooking" />
 
         <TextView
             android:id="@+id/item_abstract_favorite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/card_article_margin"
+            android:layout_marginLeft="@dimen/card_article_margin"
+            android:layout_marginRight="@dimen/card_article_margin"
+            android:layout_marginTop="@dimen/card_article_margin"
             tool:text="The search for the missing grain led to Trinidad and Thomas Jefferson, and now excitement among African-American chefs." />
 
 
@@ -45,17 +51,23 @@
                 android:id="@+id/item_byline_favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                tool:text="By KIM SEVERSON" />
+                android:layout_weight="2"
+                tool:text="By KIM SEVERSON"
+                android:layout_marginBottom="@dimen/card_article_margin"
+                android:layout_marginLeft="@dimen/card_article_margin"
+                android:layout_marginRight="@dimen/card_article_margin"
+                android:layout_marginTop="@dimen/card_article_margin"/>
 
             <TextView
                 android:id="@+id/item_published_date_favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                tool:text="2018-02-13" />
+                tool:text="2018-02-13"
+                android:layout_marginBottom="@dimen/card_article_margin"
+                android:layout_marginLeft="@dimen/card_article_margin"
+                android:layout_marginRight="@dimen/card_article_margin"
+                android:layout_marginTop="@dimen/card_article_margin"/>
         </LinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>

@@ -6,10 +6,10 @@ public class MediaMetaData {
 
     @SerializedName("url")
     private String url;
-    @SerializedName("format")
-    private String format;
+
     @SerializedName("height")
     private int height;
+
     @SerializedName("width")
     private int width;
 
@@ -19,14 +19,6 @@ public class MediaMetaData {
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public String getFormat() {
-        return format;
-    }
-
-    public void setFormat(String format) {
-        this.format = format;
     }
 
     public int getHeight() {

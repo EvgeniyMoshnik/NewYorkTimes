@@ -27,8 +27,8 @@ card_view:cardCornerRadius="20dp">
         >
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:id="@+id/circle_image_article"
             android:layout_marginBottom="@dimen/card_article_margin"
             android:layout_marginLeft="@dimen/card_article_margin"
@@ -60,7 +60,7 @@ card_view:cardCornerRadius="20dp">
             android:id="@+id/item_byline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             tool:text="By KIM SEVERSON"
             android:layout_marginBottom="@dimen/card_article_margin"
             android:layout_marginLeft="@dimen/card_article_margin"

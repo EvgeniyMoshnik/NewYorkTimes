@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/card_article_margin"
+    android:layout_marginLeft="@dimen/card_article_margin"
+    android:layout_marginRight="@dimen/card_article_margin"
+    android:layout_marginTop="@dimen/card_article_margin"
     tools:context="com.example.evgeniy.newyorktimes.ArticleDetailActivity"
     tools:showIn="@layout/activity_article_detail">
 
@@ -17,16 +21,22 @@
             android:id="@+id/detail_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
+            android:layout_marginBottom="@dimen/card_article_margin"
+            android:layout_marginLeft="@dimen/card_article_margin"
+            android:layout_marginRight="@dimen/card_article_margin"
+            android:layout_marginTop="50dp"
             tools:text="Finding a Lost Strain of Rice, and Clues to Slave Cooking" />
 
         <TextView
             android:id="@+id/detail_abstract"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/card_article_margin"
+            android:layout_marginLeft="@dimen/card_article_margin"
+            android:layout_marginRight="@dimen/card_article_margin"
+            android:layout_marginTop="@dimen/card_article_margin"
             tools:text="The search for the missing grain led to Trinidad and Thomas Jefferson, and now excitement among African-American chefs." />
 
 
@@ -39,16 +49,22 @@
                 android:id="@+id/detail_byline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
+                android:layout_weight="2"
+                android:layout_marginBottom="@dimen/card_article_margin"
+                android:layout_marginLeft="@dimen/card_article_margin"
+                android:layout_marginRight="@dimen/card_article_margin"
+                android:layout_marginTop="@dimen/card_article_margin"
                 tools:text="By KIM SEVERSON" />
 
             <TextView
                 android:id="@+id/detail_published_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_weight="1"
+                android:layout_marginBottom="@dimen/card_article_margin"
+                android:layout_marginLeft="@dimen/card_article_margin"
+                android:layout_marginRight="@dimen/card_article_margin"
+                android:layout_marginTop="@dimen/card_article_margin"
                 tools:text="2018-02-13" />
         </LinearLayout>
     </LinearLayout>
