@@ -13,10 +13,15 @@ import com.example.evgeniy.newyorktimes.data.model.Article;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class ArticlesFavoriteActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private SwipeRefreshLayout swipeRefreshLayout;
+    @BindView(R.id.article_recycler_view_favorite)
+    RecyclerView recyclerView;
+    @BindView(R.id.swipe_refresh_layout_favorite)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +29,10 @@ public class ArticlesFavoriteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_articles_favorite);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ButterKnife.bind(this);
 
-        recyclerView = (RecyclerView) findViewById(R.id.article_recycler_view_favorite);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
-
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout_favorite);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

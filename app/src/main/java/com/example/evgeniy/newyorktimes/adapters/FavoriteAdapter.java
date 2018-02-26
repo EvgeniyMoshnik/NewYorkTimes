@@ -21,6 +21,8 @@ import com.example.evgeniy.newyorktimes.utils.Constants;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ArticleViewHolder>  {
@@ -117,26 +119,24 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Articl
         builder.show();
     }
 
-     static class ArticleViewHolder extends RecyclerView.ViewHolder {
+    static class ArticleViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView mTvTitle;
-        private TextView mTvAbstract;
-        private TextView mTvByline;
-        private TextView mTvPublishedDate;
+        @BindView(R.id.item_title_favorite)
+        TextView mTvTitle;
+        @BindView(R.id.item_abstract_favorite)
+        TextView mTvAbstract;
+        @BindView(R.id.item_byline_favorite)
+        TextView mTvByline;
+        @BindView(R.id.item_published_date_favorite)
+        TextView mTvPublishedDate;
+
         private View mView;
 
-        //  private Article mArticle;
 
-
-         ArticleViewHolder(View view) {
+        ArticleViewHolder(View view) {
             super(view);
             mView = view;
-
-            mTvTitle = (TextView) view.findViewById(R.id.item_title_favorite);
-            mTvAbstract = (TextView) view.findViewById(R.id.item_abstract_favorite);
-            mTvByline = (TextView) view.findViewById(R.id.item_byline_favorite);
-            mTvPublishedDate = (TextView) view.findViewById(R.id.item_published_date_favorite);
-          //  mCircleIVArticle = (CircleImageView) view.findViewById(R.id.circle_image_article);
+            ButterKnife.bind(this, view);
         }
     }
 

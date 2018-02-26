@@ -13,12 +13,18 @@ import android.view.View;
 
 import com.example.evgeniy.newyorktimes.adapters.TabAdapter;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar mToolbar;
-    private TabLayout mTabLayout;
-    private ViewPager mViewPager;
-    private TabAdapter mTabAdapter;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+    @BindView(R.id.tab_layout)
+    TabLayout mTabLayout;
+    @BindView(R.id.view_pager)
+    ViewPager mViewPager;
+    TabAdapter mTabAdapter;
 
     private FragmentManager mFragmentManager;
 
@@ -26,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
         if (mToolbar != null) {
             mToolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.white ));
@@ -36,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
         mFragmentManager = getSupportFragmentManager();
 
-        mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
-
-        mViewPager = (ViewPager) findViewById(R.id.view_pager);
         mTabAdapter = new TabAdapter(mFragmentManager, 3);
 
         mViewPager.setAdapter(mTabAdapter);

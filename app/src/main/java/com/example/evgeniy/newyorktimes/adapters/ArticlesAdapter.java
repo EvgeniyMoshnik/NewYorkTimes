@@ -21,6 +21,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -121,21 +123,22 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.Articl
 
      static class ArticleViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView mTvTitle;
-        private TextView mTvByline;
-        private TextView mTvPublishedDate;
-        private CircleImageView mCircleIVArticle;
-        private View mView;
+        @BindView(R.id.item_title)
+        TextView mTvTitle;
+        @BindView(R.id.item_byline)
+        TextView mTvByline;
+        @BindView(R.id.item_published_date)
+        TextView mTvPublishedDate;
+        @BindView(R.id.circle_image_article)
+        CircleImageView mCircleIVArticle;
+        View mView;
 
 
          ArticleViewHolder(View view) {
             super(view);
             mView = view;
 
-            mTvTitle = (TextView) view.findViewById(R.id.item_title);
-            mTvByline = (TextView) view.findViewById(R.id.item_byline);
-            mTvPublishedDate = (TextView) view.findViewById(R.id.item_published_date);
-            mCircleIVArticle = (CircleImageView) view.findViewById(R.id.circle_image_article);
+             ButterKnife.bind(this, view);
         }
     }
 

@@ -21,6 +21,9 @@ import com.example.evgeniy.newyorktimes.utils.Constants;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,12 +34,15 @@ public class ArticlesFragment extends Fragment {
 
     private static final String BUNDLE_TYPE_ARTICLES = "type_articles";
 
-    private RecyclerView mRecyclerView;
-    private RecyclerView.LayoutManager mLayoutManager;
+    @BindView(R.id.article_recycler_view)
+    RecyclerView mRecyclerView;
 
-    private SwipeRefreshLayout mSwipeRefreshLayout;
+    @BindView(R.id.swipe_refresh_layout)
+    SwipeRefreshLayout mSwipeRefreshLayout;
 
     private String mTypeArticles;
+
+    private Unbinder mUnbinder;
 
     public static ArticlesFragment newInstance(String typeArticles) {
         ArticlesFragment fragment = new ArticlesFragment();
@@ -61,10 +67,9 @@ public class ArticlesFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_articles, container, false);
 
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.article_recycler_view);
-        mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_refresh_layout);
+        mUnbinder = ButterKnife.bind(this,rootView);
 
-        mLayoutManager = new LinearLayoutManager(getActivity());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -102,5 +107,12 @@ public class ArticlesFragment extends Fragment {
         });
 
         mSwipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        mUnbinder.unbind();
     }
 }

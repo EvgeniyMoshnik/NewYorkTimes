@@ -11,14 +11,20 @@ import android.widget.TextView;
 
 import com.example.evgeniy.newyorktimes.utils.Constants;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 public class ArticleDetailActivity extends AppCompatActivity {
 
-    public TextView mTvTitle;
-    public TextView mTvAbstract;
-    public TextView mTvByline;
-    public TextView mTvPublishedDate;
+    @BindView(R.id.detail_title)
+    TextView mTvTitle;
+    @BindView(R.id.detail_abstract)
+    TextView mTvAbstract;
+    @BindView(R.id.detail_byline)
+    TextView mTvByline;
+    @BindView(R.id.detail_published_date)
+    TextView mTvPublishedDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +32,15 @@ public class ArticleDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_article_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ButterKnife.bind(this);
 
         final Intent intent = getIntent();
 
         if (intent != null) {
 
-            mTvTitle = (TextView) findViewById(R.id.detail_title);
             mTvTitle.setText(intent.getStringExtra(Constants.BUNDLE_ARTICLE_TITLE));
-            mTvAbstract = (TextView) findViewById(R.id.detail_abstract);
             mTvAbstract.setText(intent.getStringExtra(Constants.BUNDLE_ARTICLE_ABSTRACT));
-            mTvByline = (TextView) findViewById(R.id.detail_byline);
             mTvByline.setText(intent.getStringExtra(Constants.BUNDLE_ARTICLE_BYLINE));
-            mTvPublishedDate = (TextView) findViewById(R.id.detail_published_date);
             mTvPublishedDate.setText(intent.getStringExtra(Constants.BUNDLE_ARTICLE_DATE));
         }
 
